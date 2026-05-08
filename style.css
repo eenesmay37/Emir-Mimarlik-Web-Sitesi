@@ -1,0 +1,355 @@
+/* 1. Lüks ve şık bir Google Font ekliyoruz */
+html {
+    scroll-behavior: smooth; /* İşte bütün sihir bu satırda! */
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Yeni fontumuz */
+}
+
+body {
+    background-color: #f8f8f8; /* Çok hafif grimsi beyaz, daha asil durur */
+    color: #222;
+    line-height: 1.6;
+}
+
+/* 2. ŞEFFAF MENÜ (Resmin üstünde yüzecek) */
+header {
+    position: absolute; /* Menüyü yukarı sabitler, resmin üstüne bindirir */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+    z-index: 10; /* Menüyü her şeyin üstünde tutar */
+}
+
+.logo {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d4af37; /* Lüks mimari altın rengi */
+}
+
+/* 3. ANA GİRİŞ ŞOV ALANI */
+.hero {
+    height: 100vh; /* Ekranın %100'ünü kapla */
+    background-image: url('arkaplan.jpg'); /* İndirdiğin fotoğraf */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.65); /* Resmin üzerine %65 karanlık perde */
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 70px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero-overlay p {
+    font-size: 22px;
+    color: #ddd;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.btn {
+    padding: 16px 40px;
+    background-color: #d4af37;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #111;
+}
+
+/* 4. PROJELER ALANI (Ultra Minimalist / Arolat Tarzı) */
+.projects {
+    padding: 150px 50px; /* Yukarıdan aşağıdan devasa nefes alma boşlukları */
+    max-width: 1400px; /* Tasarımı genişlettik */
+    margin: 0 auto;
+}
+
+.projects h2 {
+    text-align: left; /* Artık ortalamıyoruz, sola dayalı daha asil durur */
+    font-size: 12px;
+    margin-bottom: 80px;
+    font-weight: 500;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* Kartların kendi kendine dizilmesi için Grid yapısı */
+.project-grid {
+    display: grid;
+    /* Fotoğraflar artık çok daha büyük ve ihtişamlı duracak */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 100px 60px; /* Projeler arasına devasa boşluklar (Nefes alma payı) */
+}
+
+.project-card {
+    background: transparent; /* Kart arka planı yok */
+    border-radius: 0px; 
+    box-shadow: none; /* UCUZ DURAN GÖLGELERE VEDA ETTİK */
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: none; /* Üstüne gelince havaya kalkma çocukluğunu bıraktık */
+}
+
+.img-container {
+    overflow: hidden;
+    margin-bottom: 25px; /* Fotoğrafla yazı arasına estetik bir boşluk */
+}
+
+.project-card img {
+    width: 100%;
+    height: 550px; /* Devasa dikey/yatay mimari form */
+    object-fit: cover;
+    filter: grayscale(15%); /* Sırrımız: Fotoğraflar sayfa ilk açıldığında çok hafif soluk durur */
+    transition: filter 0.6s ease, transform 1s ease;
+}
+
+/* Üstüne gelince yavaşça %3 büyür ve orijinal rengine (canlıya) döner */
+.project-card:hover img {
+    transform: scale(1.03);
+    filter: grayscale(0%);
+}
+
+.project-info {
+    padding: 0;
+    background: transparent;
+    text-align: left;
+}
+
+.project-info h3 {
+    font-size: 24px;
+    color: #111;
+    margin-bottom: 10px;
+    font-weight: 300; /* İncecik, jilet gibi bir başlık */
+    letter-spacing: 1px;
+}
+
+.project-info p {
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}   
+
+/* 5. ALT BİLGİ */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #111;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* --- 5. HAKKIMDA & İLETİŞİM (Minimalist Arolat Tarzı) --- */
+.about-minimal {
+    padding: 150px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.about-text p {
+    font-size: 16px;
+    color: #777;
+    line-height: 2.2;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.about-text .signature {
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #111;
+}
+
+.about-img img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: filter 0.6s ease;
+}
+
+.about-img img:hover {
+    filter: grayscale(0%);
+}
+
+.contact-minimal {
+    padding: 150px 50px;
+    background: #fff;
+    border-top: 1px solid #eee; /* Formu ayırmak için ince asil bir çizgi */
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 80px;
+    color: #111;
+}
+
+.contact-minimal form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Form elemanları arası bol boşluk */
+}
+
+/* Kaba kutulara veda, sadece ince alt çizgiler */
+.contact-minimal input, .contact-minimal textarea {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 12px;
+    letter-spacing: 3px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+
+.contact-minimal input:focus, .contact-minimal textarea:focus {
+    border-bottom: 1px solid #111; /* Tıklanınca çizgi kararır */
+}
+
+.contact-minimal button {
+    padding: 20px;
+    background: #111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    transition: background 0.3s;
+}
+
+.contact-minimal button:hover {
+    background: #d4af37; /* Lüks altın sarısı dokunuş */
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background-color: #fff;
+    color: #999;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-top: 1px solid #eee;
+}
+
+/* --- 6. CEP TELEFONU UYUMU (RESPONSIVE TASARIM) --- */
+@media screen and (max-width: 768px) {
+    
+    /* Yanlardan o devasa boşlukları kısıyoruz ki ekrana sığsın */
+    .projects, .about-minimal, .contact-minimal, section {
+        padding: 60px 20px !important; 
+    }
+
+    /* Projeler yan yana değil, alt alta dizilsin */
+    .project-grid, .about-grid {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+
+    /* Telefondaki fotoğrafların boyunu biraz kısaltalım */
+    .project-card img {
+        height: 350px; 
+    }
+
+    /* Üst menüyü telefonda alt alta alalım */
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px !important;
+        text-align: center;
+    }
+
+    /* Detay sayfasındaki o devasa yazıyı telefona uygun küçültelim */
+    h1 {
+        font-size: 32px !important;
+    }
+
+    /* Hakkımda yazısı telefonda ortalansın */
+    .about-text {
+        text-align: center;
+    }
+}
