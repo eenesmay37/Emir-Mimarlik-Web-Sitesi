@@ -353,3 +353,42 @@ footer {
         text-align: center;
     }
 }
+
+/* --- YENİ VE SERT LOGO TASARIM AYARI --- */
+header {
+    /* Header'ın içindeki her şeyi dikeyde tam ortaya hizalar */
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 20px 50px; /* Üst-alt boşluğu biraz azalttık */
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Logonun kendi içindeki a etiketini de ortalar */
+}
+
+.site-logo {
+    /* Logonun maksimum yüksekliğini netleştiriyoruz. */
+    /* Bu sayıyı (50px) arkadaşınla deneyerek değiştirebilirsiniz. */
+    height: 50px; 
+    
+    max-height: 100%; /* Header'ın dışına taşmasını engeller */
+    width: auto;      /* Genişliği otomatik ayarlar, logo yayılmaz */
+    display: block;
+    transition: 0.3s;
+}
+
+.site-logo:hover {
+    transform: scale(1.05); /* Üzerine gelince hafif büyüme efekti */
+}
+
+/* Mobilde logonun çok büyük kalmaması için ufak bir ayar */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px; /* Mobilde daha dar boşluklar */
+    }
+    .site-logo {
+        height: 40px; /* Mobilde logoyu biraz daha küçülttük */
+    }
+}

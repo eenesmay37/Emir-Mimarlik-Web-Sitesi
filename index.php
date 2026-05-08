@@ -30,16 +30,20 @@ include 'baglan.php';
 <body>
 
     <header>
-        <div class="logo">Emir Mimarlık</div>
-        <nav>
-            <ul>
-                <li><a href="#anasayfa">Ana Sayfa</a></li>
-                <li><a href="#projeler">Projeler</a></li>
-                <li><a href="#hakkimda">Hakkımda</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="logo">
+        <a href="#anasayfa">
+            <img src="uploads/logo.png" alt="Emir Mimarlık Logo" class="site-logo">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#anasayfa">ANA SAYFA</a></li>
+            <li><a href="#projeler">PROJELER</a></li>
+            <li><a href="#hakkimda">HAKKIMDA</a></li>
+            <li><a href="#iletisim">İLETİŞİM</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section id="anasayfa" class="hero">
         <div class="hero-overlay">
