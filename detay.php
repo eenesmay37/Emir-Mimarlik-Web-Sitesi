@@ -63,6 +63,8 @@ $proje = mysqli_fetch_assoc($sorgu);
         </div>
 
     </section>
-
+<footer class="footer-copyright">
+    <p>&copy; 2026 Emir Mimarlık. Tüm hakları saklıdır.</p>
+</footer>
 </body>
 </html>
