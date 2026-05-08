@@ -26,7 +26,11 @@ $proje = mysqli_fetch_assoc($sorgu);
 
     <!-- Üst Kısım: Sade bir Geri Dönüş Menüsü -->
     <header style="position: relative; padding: 40px 60px; background: #fff; z-index: 10;">
-        <div class="logo" style="color: #111;">Mimar.</div>
+        <div class="logo">
+    <a href="index.php">
+        <img src="uploads/logo.png" alt="Emir Mimarlık Logo" class="site-logo">
+    </a>
+</div>
         <nav>
             <ul>
                 <li><a href="index.php" style="color: #111; font-weight: 700; border-bottom: 2px solid #d4af37; padding-bottom: 5px;">&larr; PORTFOLYOYU DÖN</a></li>
