@@ -40,7 +40,7 @@ include 'baglan.php';
             <li><a href="#anasayfa">ANA SAYFA</a></li>
             <li><a href="#projeler">PROJELER</a></li>
             <li><a href="#hakkimda">HAKKIMDA</a></li>
-            <li><a href="#iletisim">İLETİŞİM</a></li>
+            <li><a href="iletisim.php">İLETİŞİM</a></li>
         </ul>
     </nav>
 </header>
@@ -53,41 +53,104 @@ include 'baglan.php';
         </div>
     </section>
 
-    <section id="projeler" class="projects">
-        <h2>Öne Çıkan Projeler</h2>
-        <div class="project-grid">
-            
-            <?php
-            $sorgu = "SELECT * FROM projeler ORDER BY id DESC";
-            $sonuc = mysqli_query($baglanti, $sorgu);
+    <section id="projeler" class="premium-projects-section">
+    <div class="section-title-container">
+        
+        <ul class="project-filters">
+            <li class="active" data-filter="all">TÜMÜ</li>
+            <li data-filter="mimari">MİMARİ</li>
+            <li data-filter="peyzaj">PEYZAJ</li>
+            <li data-filter="ic-mekan">İÇ MEKAN</li>
+        </ul>
+    </div>
 
-            if (mysqli_num_rows($sonuc) == 0) {
-                echo "<p style='text-align:center; width:100%; color:#888;'>Henüz hiç proje eklenmemiş.</p>";
-            } else {
-                while($satir = mysqli_fetch_assoc($sonuc)) {
-                    // Tıklanabilir Link Başlangıcı (Projeye ait ID'yi detay.php'ye gönderiyoruz)
-                    echo '<a href="detay.php?id=' . $satir['id'] . '" style="text-decoration: none; color: inherit;">';
-                    echo '<div class="project-card">';
-                    
-                    // Resim Alanı
-                    echo '<div class="img-container">';
-                    echo '<img src="' . $satir['resim_yolu'] . '" alt="Proje" loading="lazy">';
-                    echo '</div>';
-                    
-                    // Bilgi Alanı
-                    echo '<div class="project-info">';
-                    echo '<h3>' . $satir['baslik'] . '</h3>';
-                    echo '<p>' . $satir['konum_yil'] . '</p>';
-                    echo '</div>';
-                    
-                    echo '</div>';
-                    echo '</a>'; // Link Bitişi
+    <div class="projects-grid">
+        
+        <a href="detay.php?id=7" class="project-card" data-category="mimari">
+            <div class="card-img-wrapper">
+                <img src="https://picsum.photos/800/600?random=20" alt="Rami Kütüphanesi">
+                <div class="card-overlay">
+                    <div class="card-text">
+                        <h3>Rami Kütüphanesi</h3>
+                        <span>MİMARİ / 2022</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="detay.php?id=8" class="project-card" data-category="peyzaj">
+            <div class="card-img-wrapper">
+                <img src="https://picsum.photos/800/600?random=21" alt="Seddülbahir Kalesi">
+                <div class="card-overlay">
+                    <div class="card-text">
+                        <h3>Seddülbahir Kalesi</h3>
+                        <span>PEYZAJ / 2023</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="detay.php?id=9" class="project-card" data-category="ic-mekan">
+            <div class="card-img-wrapper">
+                <img src="https://picsum.photos/800/600?random=22" alt="Dereköy Villa Projesi">
+                <div class="card-overlay">
+                    <div class="card-text">
+                        <h3>Dereköy Villa Projesi</h3>
+                        <span>İÇ MEKAN / 2024</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="detay.php?id=10" class="project-card" data-category="mimari">
+            <div class="card-img-wrapper">
+                <img src="https://picsum.photos/800/600?random=23" alt="TC Ulusal Arşiv Binası">
+                <div class="card-overlay">
+                    <div class="card-text">
+                        <h3>TC Ulusal Arşiv Binası</h3>
+                        <span>MİMARİ / 2021</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+         <a href="detay.php?id=11" class="project-card" data-category="mimari">
+            <div class="card-img-wrapper">
+                <img src="https://picsum.photos/800/600?random=23" alt="TC Ulusal Arşiv Binası">
+                <div class="card-overlay">
+                    <div class="card-text">
+                        <h3>TC Ulusal Arşiv Binası</h3>
+                        <span>MİMARİ / 2021</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<script>
+    const filters = document.querySelectorAll('.project-filters li');
+    const cards = document.querySelectorAll('.project-card');
+
+    filters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            // Aktif olan sekmenin alt çizgisini değiştir
+            filters.forEach(f => f.classList.remove('active'));
+            this.classList.add('active');
+
+            const target = this.getAttribute('data-filter');
+
+            // Sadece seçilen kategoriye ait projeleri göster
+            cards.forEach(card => {
+                if (target === 'all' || card.getAttribute('data-category') === target) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
                 }
-            }
-            ?>
-
-        </div>
-    </section>
+            });
+        });
+    });
+</script>
 <!-- HAKKIMDA BÖLÜMÜ (Ultra Minimal) -->
     <section id="hakkimda" class="about-minimal">
         <div class="about-grid">
@@ -109,25 +172,46 @@ include 'baglan.php';
         </div>
     </section>
 
-    <!-- İLETİŞİM BÖLÜMÜ (Ultra Minimal) -->
-    <section id="iletisim" class="contact-minimal">
-        <div class="contact-container">
-            <h2>İletişim.</h2>
-            <?php if($mesaj_bildirim != "") echo "<p style='color: #28a745; font-weight: bold; margin-bottom: 20px;'>$mesaj_bildirim</p>"; ?>
-            
-            <form action="index.php#iletisim" method="POST">
-                <input type="text" name="isim" placeholder="ADINIZ SOYADINIZ" required>
-                <input type="email" name="eposta" placeholder="E-POSTA ADRESİNİZ" required>
-                <textarea name="mesaj" placeholder="PROJENİZDEN BAHSEDİN..." rows="1" required></textarea>
-                <button type="submit" name="mesaj_gonder">GÖNDER</button>
-            </form>
-        </div>
-    </section>
+  <section class="premium-cta">
+    <h2 class="cta-title">Hayalinizdeki Projeyi Beraber İnşa Edelim.</h2>
+    <p class="cta-text">Sizinle tanışmaktan mutluluk duyarız. Fikirlerinizi gerçeğe dönüştürmek ve detayları konuşmak için bizimle iletişime geçin.</p>
+    <a href="iletisim.php" class="premium-btn">BİZE ULAŞIN</a>
+</section>
 
     <!-- ALT BİLGİ -->
-    <footer>
-        <p>&copy; 2026 Mimar Tasarım Stüdyosu. Tüm hakları saklıdır.</p>
-    </footer>
+   <footer class="premium-footer">
+    <div class="premium-footer-container">
+        
+        <div class="footer-brand">
+            <img src="uploads/logo.png" alt="Emir Mimarlık Logo" class="footer-logo">
+            <div class="social-icons">
+                <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+            </div>
+            <p class="copyright-text">© 2026 Emir Mimarlık.<br>Tüm hakları saklıdır.</p>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-item">
+                <p>Levent Mahallesi, Mimarlar Sokak.<br>No: 10 Avrupa Yakası<br>Beşiktaş / İstanbul</p>
+            </div>
+            <div class="info-item">
+                <p>Telefon<br>+90 212 555 12 34</p>
+            </div>
+            <div class="info-item">
+                <p>E-posta<br>info@emirmimarlik.com</p>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <h4>Menü</h4>
+            <ul>
+                <li><a href="#projeler">Projelerimiz</a></li>
+                <li><a href="#hakkimda">Hakkımızda</a></li>
+                <li><a href="iletisim.php">İletişim</a></li> </ul>
+        </div>
+        
+    </div>
+</footer>
 
 </body>
 </html>

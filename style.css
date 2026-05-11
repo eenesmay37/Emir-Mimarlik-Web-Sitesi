@@ -354,27 +354,10 @@ footer {
     }
 }
 
-/* --- YENİ VE SERT LOGO TASARIM AYARI --- */
-header {
-    /* Header'ın içindeki her şeyi dikeyde tam ortaya hizalar */
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    padding: 20px 50px; /* Üst-alt boşluğu biraz azalttık */
-}
-
-.logo {
-    display: flex;
-    align-items: center; /* Logonun kendi içindeki a etiketini de ortalar */
-}
-
+/* LOGO TASARIM AYARI */
 .site-logo {
-    /* Logonun maksimum yüksekliğini netleştiriyoruz. */
-    /* Bu sayıyı (50px) arkadaşınla deneyerek değiştirebilirsiniz. */
-    height: 50px; 
-    
-    max-height: 100%; /* Header'ın dışına taşmasını engeller */
-    width: auto;      /* Genişliği otomatik ayarlar, logo yayılmaz */
+    height: 50px; /* Logonun yüksekliğini buradan arkadaşının zevkine göre ayarlayabilirsin */
+    width: auto;  /* Genişliği otomatik ayarlar, logo yayılmaz */
     display: block;
     transition: 0.3s;
 }
@@ -385,10 +368,807 @@ header {
 
 /* Mobilde logonun çok büyük kalmaması için ufak bir ayar */
 @media (max-width: 768px) {
-    header {
-        padding: 15px 20px; /* Mobilde daha dar boşluklar */
-    }
     .site-logo {
-        height: 40px; /* Mobilde logoyu biraz daha küçülttük */
+        height: 40px;
     }
+}
+/* --- PREMIUM BEYAZ FOOTER TASARIMI --- */
+.premium-footer {
+    background-color: #f8f9fa; /* Çok açık, lüks bir gri/beyaz tonu */
+    color: #111; /* Koyu antrasit yazılar */
+    padding: 60px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #eaeaea; /* Üstte çok ince, zarif bir çizgi */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.premium-footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    width: 25%;
+    min-width: 200px;
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.social-icons a {
+    color: #555;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #000;
+}
+
+.copyright-text {
+    font-size: 0.8rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+.footer-info {
+    width: 45%;
+    min-width: 250px;
+    border-left: 1px solid #ddd; /* Ortadaki o dikey ayırıcı çizgi */
+    padding-left: 40px;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item p {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-menu {
+    width: 20%;
+    min-width: 150px;
+    text-align: right; /* Menüyü sağa yasladık */
+}
+
+.footer-menu h4 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #111;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 12px;
+}
+
+.footer-menu a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #000;
+}
+
+/* Mobilde çizgileri ve hizalamaları düzeltme */
+@media (max-width: 768px) {
+    .footer-info {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 30px;
+        border-top: 1px solid #ddd;
+        padding-top: 30px;
+    }
+    .footer-menu {
+        text-align: left;
+        margin-top: 30px;
+        width: 100%;
+    }
+}
+/* --- LÜKS İLETİŞİM YÖNLENDİRME (CTA) TASARIMI --- */
+.premium-cta {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #fff; /* Temiz beyaz boşluk (White Space) */
+}
+
+.cta-title {
+    font-size: 2.2rem;
+    font-weight: 300; /* İnce, zarif yazı tipi */
+    color: #111;
+    margin-bottom: 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.cta-text {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.premium-btn {
+    display: inline-block;
+    padding: 15px 45px;
+    background-color: #111; /* Simsyah asil buton */
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px; /* Harflerin arasını açarak lüks hava kattık */
+    border: 1px solid #111;
+    transition: 0.4s ease;
+}
+
+.premium-btn:hover {
+    background-color: #fff;
+    color: #111;
+    transform: translateY(-3px); /* Üstüne gelince hafif yukarı kalkma efekti */
+}
+
+/* --- EMİR MİMARLIK MASTERPIECE İLETİŞİM --- */
+.contact-page-bg { background-color: #fff; }
+
+.contact-wrapper {
+    max-width: 1300px;
+    margin: 100px auto;
+    padding: 0 40px;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.contact-visual { flex: 1.2; }
+.contact-form-side { flex: 0.8; }
+
+.mini-title {
+    letter-spacing: 6px;
+    font-weight: 300;
+    color: #999;
+    margin-bottom: 25px;
+    font-size: 0.8rem;
+}
+
+.main-heading {
+    font-size: 3.5rem;
+    font-weight: 200; /* İnce ve asil font */
+    line-height: 1.1;
+    color: #111;
+    margin-bottom: 60px;
+}
+
+.detail-item { margin-bottom: 35px; }
+.detail-item span {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: #bbb;
+    margin-bottom: 8px;
+}
+.detail-item p { font-size: 1.1rem; color: #333; font-weight: 300; }
+
+/* GHOST FORM TASARIMI */
+.ghost-form .input-group { margin-bottom: 40px; }
+
+.ghost-form input, .ghost-form textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ddd; /* Sadece alt çizgi */
+    padding: 15px 0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    outline: none;
+    transition: 0.4s;
+    color: #111;
+}
+
+.ghost-form input:focus, .ghost-form textarea:focus {
+    border-bottom: 1px solid #111;
+}
+
+.send-btn {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 18px 60px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.send-btn:hover {
+    background: #333;
+    letter-spacing: 5px; /* Üstüne gelince harfler açılır (Lüks hava) */
+}
+
+.full-map { line-height: 0; margin-top: 50px; }
+
+/* Mobil Ayarı */
+@media (max-width: 992px) {
+    .contact-grid { flex-direction: column; gap: 60px; }
+    .main-heading { font-size: 2.5rem; }
+}
+
+/* --- İLETİŞİM SAYFASI MİNİMAL COPYRIGHT --- */
+.mini-copyright {
+    background-color: #111; /* Asil durması için koyu antrasit arka plan */
+    text-align: center;
+    padding: 20px 0;
+}
+
+.mini-copyright p {
+    color: #888; /* Göz yormayan gri yazı */
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* --- ETKİLEŞİMLİ (HOVER) HARİTA EFEKTİ --- */
+.interactive-map {
+    /* Normal Hali: Siyah Beyaz ve Soluk */
+    filter: grayscale(100%) contrast(1.2) opacity(0.8);
+    /* Yarım saniyelik sinematik, yumuşak geçiş efekti */
+    transition: filter 0.5s ease, opacity 0.5s ease; 
+}
+
+.interactive-map:hover {
+    /* Fare Üstündeyken: Tam Renkli ve Canlı */
+    filter: grayscale(0%) contrast(1) opacity(1);
+}
+
+/* İLETİŞİM VE DETAY SAYFASI ORTAK DÖNÜŞ BUTONU */
+.back-to-portfolio {
+    color: #111 !important; /* Veya detay sayfasındaki o sarı tonu: #f1c40f */
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 2px !important;
+    text-decoration: none;
+    border-bottom: 2px solid #f1c40f; /* Altındaki o meşhur sarı çizgi */
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.back-to-portfolio:hover {
+    color: #f1c40f !important;
+    border-bottom-color: #111;
+}
+
+/* --- ORİJİNAL ALTIN ÇİZGİLİ DÖNÜŞ LİNKİ --- */
+.orijinal-altin-link {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700; /* Yazıyı resimdeki gibi kalın yapar */
+    color: #000; /* Tam siyah */
+    text-decoration: none;
+    letter-spacing: 1.5px; /* Harflerin arasını resimdeki gibi açar */
+    border-bottom: 2px solid #cda434; /* Resimdeki o spesifik altın sarısı çizgi */
+    padding-bottom: 6px; /* Çizgi ile yazı arasındaki boşluk */
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.orijinal-altin-link:hover {
+    color: #cda434;
+    border-bottom-color: #000;
+}
+
+/* =========================================
+   SİNEMATİK PROJE DETAY GİRİŞİ
+========================================= */
+.project-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Tam ekran yüksekliği */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax efekti için */
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Resmin üzerine gelen karanlık şeffaf katman */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Karanlık seviyesini buradan ayarlayabilirsin */
+    z-index: 1;
+}
+
+/* İçeriklerin filtrenin üstünde kalması için */
+.hero-top, .hero-center-content, .hero-scroll-indicator {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Üst Kısım (Back Butonu) --- */
+.hero-top {
+    padding: 40px 50px;
+}
+.hero-back-btn {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+.hero-back-btn:hover { opacity: 0.7; }
+
+/* --- Orta Kısım --- */
+.hero-center-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Etiketler (Koruma, Masterplan vb.) */
+.project-tags {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.project-tags span {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 6px 18px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+/* Ana Başlık */
+.project-main-title {
+    font-size: 5rem; /* Resimdeki gibi devasa başlık */
+    font-weight: 600;
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+}
+
+/* Proje Bilgileri Grid */
+.project-meta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    max-width: 900px;
+}
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.meta-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+.meta-val {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* --- Scroll Çubuğu (Sol Alt) --- */
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.scroll-text {
+    transform: rotate(-90deg);
+    margin-bottom: 25px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================
+   PROJE ALTI NAVİGASYON (ÖNCEKİ / SONRAKİ)
+========================================= */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 5%;
+    background-color: #fff;
+    border-top: 1px solid #eaeaea; /* Üstündeki ince gri çizgi */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #111;
+    transition: 0.3s ease;
+}
+
+.nav-item.next-project { text-align: right; }
+
+.nav-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Oklar üzerine gelince sağa/sola hafif kaysın */
+.prev-project:hover .nav-arrow { transform: translateX(-5px); }
+.next-project:hover .nav-arrow { transform: translateX(5px); }
+
+.nav-label {
+    display: block;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.nav-title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Ortadaki Yuvarlak Grid İkonu */
+.nav-center-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    color: #555;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-center-grid:hover {
+    background-color: #e0e0e0;
+    color: #111;
+    transform: scale(1.05); /* Üzerine gelince hafif büyüsün */
+}
+
+/* --- Mobilde düzgün durması için --- */
+@media (max-width: 768px) {
+    .project-navigation {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    .nav-item.next-project { flex-direction: row-reverse; text-align: left; }
+}
+
+/* =========================================
+/* =========================================
+   ASİMETRİK PROJE GALERİSİ (DÜZELTİLMİŞ)
+========================================= */
+.project-gallery-section {
+    width: 100%;
+    padding: 80px 5%;
+    background-color: #fff;
+    overflow-x: hidden; /* Sağdan soldan taşmayı KESİNLİKLE yasaklar */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 350px;
+    gap: 20px;
+    width: 100%; /* Izgarayı tam oturtur */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Tüm resimlerin genel stili (ASIL HAYAT KURTARAN KISIM BURASI) */
+.gallery-img {
+    width: 100% !important; /* Resmin orijinal boyutunu ezer, kutuya zorlar */
+    height: 100% !important;
+    object-fit: cover !important; /* Resmi ezmeden, sağından solundan kırparak sığdırır */
+    display: block;
+    cursor: pointer;
+    transition: filter 0.4s ease;
+}
+
+.gallery-img:hover {
+    filter: brightness(0.85);
+}
+
+/* --- ASİMETRİK BOYUTLANDIRMA SINIFLARI --- */
+.gallery-img.wide { grid-column: span 2; }
+.gallery-img.tall { grid-row: span 2; }
+.gallery-img.large { grid-column: span 2; grid-row: span 2; }
+.gallery-img.full-width { grid-column: 1 / -1; grid-row: span 2; }
+
+/* --- MOBİL CİHAZ UYUMU --- */
+@media (max-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-img.full-width { grid-row: span 1; }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid { 
+        grid-template-columns: 1fr; 
+        grid-auto-rows: 300px; 
+    }
+    .gallery-img.wide, .gallery-img.tall, .gallery-img.large, .gallery-img.full-width {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+/* Tüm resimlerin genel stili */
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resimleri ezmeden çerçevenin içine sığdırır */
+    transition: filter 0.4s ease;
+    cursor: pointer;
+}
+
+/* Lüks Detay: Fareyle üzerine gelince diğerleri gibi hafif koyulaşsın */
+.gallery-img:hover {
+    filter: brightness(0.85);
+}
+
+/* --- ASİMETRİK BOYUTLANDIRMA SINIFLARI --- */
+
+/* Geniş: 2 sütun kaplar */
+.gallery-img.wide { 
+    grid-column: span 2; 
+}
+
+/* Uzun: 2 satır aşağı uzar */
+.gallery-img.tall { 
+    grid-row: span 2; 
+}
+
+/* Büyük Kare: 2 sütun ve 2 satır kaplar */
+.gallery-img.large { 
+    grid-column: span 2; 
+    grid-row: span 2; 
+}
+
+/* Tam Ekran: Soldan sağa bütün ızgarayı kaplar */
+.gallery-img.full-width { 
+    grid-column: 1 / -1; 
+    grid-row: span 2; /* İki satır yüksekliğinde panoramik durur */
+}
+
+/* --- MOBİL CİHAZ UYUMU (Küçük ekranlarda tasarımın patlamaması için) --- */
+@media (max-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-img.full-width { grid-row: span 1; }
+}
+
+@media (max-width: 768px) {
+    /* Telefondan girildiğinde tüm resimler alt alta tek sütun olur */
+    .gallery-grid { 
+        grid-template-columns: 1fr; 
+        grid-auto-rows: 300px; 
+    }
+    .gallery-img.wide, .gallery-img.tall, .gallery-img.large, .gallery-img.full-width {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+/* =========================================
+   LIGHTBOX (TAM EKRAN RESİM) STİLLERİ
+========================================= */
+.lightbox {
+    display: none; /* Başlangıçta görünmez */
+    position: fixed;
+    z-index: 9999; /* Sitedeki HER ŞEYİN üstüne çıkar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.92); /* Lüks, koyu bir karartma */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tam ekran açılan resim */
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain; /* Resmi bozmadan ekrana sığdırır */
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    animation: zoomIn 0.3s ease forwards; /* Yumuşak açılış animasyonu */
+}
+
+/* Sağ üstteki X (Kapatma) Butonu */
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 100;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Kapatma ikonuna fare gelince senin o lüks sarı renk olsun */
+.close-lightbox:hover {
+    color: #cda434; 
+}
+
+/* Yumuşak Büyüme Animasyonu */
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================
+   ANA SAYFA PROJELER BÖLÜMÜ (CAPS STİLİ)
+========================================= */
+.premium-projects-section {
+    padding: 100px 5%;
+    background-color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.section-title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+/* Kategori Filtre Menüsü */
+.project-filters {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-filters li {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #999;
+    cursor: pointer;
+    transition: 0.3s;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.project-filters li:hover,
+.project-filters li.active {
+    color: #111;
+    border-bottom: 2px solid #111;
+}
+
+/* Proje Grid Sistemi (Masaüstünde 2 Sütun) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Proje Kartı Genel Yapısı */
+.project-card {
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Resim Çerçevesi (Hepsi aynı oranda dursun diye) */
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 65%; /* Resimlerin yatay dikdörtgen kalmasını sağlar */
+    overflow: hidden;
+}
+
+.card-img-wrapper img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease; /* Jilet gibi yavaşça büyüme */
+}
+
+/* Üzerine Gelince Çıkan Karanlık Filtre */
+.card-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); /* Siyah filtre */
+    opacity: 0; /* Başlangıçta görünmez */
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end; /* Yazıları köşeye yaslar */
+    padding: 40px;
+}
+
+/* Proje İsimleri */
+.card-text h3 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+    transform: translateY(20px); /* Yazıyı hafif aşağıda gizle */
+    transition: transform 0.4s ease;
+}
+
+.card-text span {
+    color: #ddd;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s; /* İkinci yazı biraz daha gecikmeli gelir */
+    display: block;
+}
+
+/* --- HOVER EFEKTLERİ (Asıl Büyü Burada) --- */
+.project-card:hover .card-img-wrapper img {
+    transform: scale(1.05); /* Resim usulca büyür */
+}
+.project-card:hover .card-overlay {
+    opacity: 1; /* Filtre belirir */
+}
+.project-card:hover .card-text h3,
+.project-card:hover .card-text span {
+    transform: translateY(0); /* Yazılar kayarak yerine oturur */
+}
+
+/* Mobil Cihaz Uyumu (Telefonda alt alta tek sütun) */
+@media (max-width: 768px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .card-text h3 { font-size: 1.4rem; padding: 20px; }
 }
