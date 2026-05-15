@@ -11,6 +11,12 @@ html {
     font-family: 'Montserrat', sans-serif; /* Yeni fontumuz */
 }
 
+/* SİTEDEKİ HİÇBİR RESMİN EKRANI TAŞIRMAMASI İÇİN KESİN KURAL */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     background-color: #f8f8f8; /* Çok hafif grimsi beyaz, daha asil durur */
     color: #222;
@@ -1172,3 +1178,69 @@ footer {
     .projects-grid { grid-template-columns: 1fr; }
     .card-text h3 { font-size: 1.4rem; padding: 20px; }
 }
+
+/* =========================================
+   TAŞMAYI BİTİREN KESİN ÇÖZÜM
+========================================= */
+
+/* 1. Sayfanın sağa kaymasını kökten engelle */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Navigasyon resimlerini (o dev havuz ve villayı) kutuya hapset */
+.nav-thumb {
+    width: 80px !important; /* Boyutu buradan ayarla kanka */
+    height: 80px !important;
+    min-width: 80px !important;
+    border-radius: 50% !important; /* Yuvarlak yapar */
+    object-fit: cover !important; /* Resmi bozmadan kırpar */
+    display: block !important;
+}
+
+/* 3. Navigasyon barının kendisini de sağa taşmasın diye sabitle */
+.project-navigation {
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 40px 5% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.project-navigation {
+    display: flex;
+    justify-content: space-between; /* Üç ana parçayı eşit dağıt */
+    align-items: center;
+    padding: 60px 5%;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.nav-side {
+    flex: 1; /* Sol ve sağ tarafa eşit alan ver */
+    display: flex;
+}
+
+.nav-center {
+    flex: 0 0 auto; /* Orta kısım sadece ikonu kadar yer kaplasın */
+}
+
+.nav-side:last-child {
+    justify-content: flex-end; /* Sağ taraftaki içeriği sağa yasla */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: #111;
+}
+

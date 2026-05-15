@@ -75,41 +75,41 @@ $sonraki_proje = $sorgu_sonraki->fetch(PDO::FETCH_ASSOC);
     </section>
 
 
-    <div class="project-navigation has-thumbs">
-        
+   <div class="project-navigation has-thumbs">
+    
+    <div class="nav-side">
         <?php if($onceki_proje): ?>
             <a href="detay.php?id=<?php echo $onceki_proje['id']; ?>" class="nav-item prev-project">
-                <img src="<?php echo $sonraki_proje['resim_yolu']; ?>" alt="Sonraki" class="nav-thumb">
+                <img src="<?php echo $onceki_proje['resim_yolu']; ?>" class="nav-thumb">
                 <div class="nav-text">
                     <span class="nav-label">ÖNCEKİ PROJE</span>
                     <span class="nav-title"><?php echo $onceki_proje['baslik']; ?></span>
                 </div>
             </a>
-        <?php else: ?>
-            <div class="nav-item prev-project" style="visibility: hidden;"></div>
         <?php endif; ?>
+    </div>
 
-
-        <a href="index.php#projeler" class="nav-center-grid" title="Tüm Projelere Dön">
+    <div class="nav-center">
+        <a href="index.php#projeler" class="nav-center-grid">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                 <path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/>
             </svg>
         </a>
+    </div>
 
-
+    <div class="nav-side">
         <?php if($sonraki_proje): ?>
             <a href="detay.php?id=<?php echo $sonraki_proje['id']; ?>" class="nav-item next-project">
                 <div class="nav-text">
                     <span class="nav-label">SONRAKİ PROJE</span>
                     <span class="nav-title"><?php echo $sonraki_proje['baslik']; ?></span>
                 </div>
-                <img src="<?php echo $sonraki_proje['resim_yolu']; ?>" alt="Sonraki" class="nav-thumb">
+                <img src="<?php echo $sonraki_proje['resim_yolu']; ?>" class="nav-thumb">
             </a>
-        <?php else: ?>
-            <div class="nav-item next-project" style="visibility: hidden;"></div>
         <?php endif; ?>
-
     </div>
+
+</div>  
 
 
     <footer class="premium-footer">
