@@ -44,11 +44,19 @@ try {
 </header>
 
 <section id="anasayfa" class="hero">
+    
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: url('arkaplan.jpg');"></div>
+        <div class="slide" style="background-image: url('arkaplan2.jpg');"></div>
+        <div class="slide" style="background-image: url('arkaplan3.jpg');"></div>
+    </div>
+
     <div class="hero-overlay">
         <h1>Mekanlara Ruh Katıyoruz</h1>    
         <p>Modern, sürdürülebilir ve estetik mimari çözümler.</p>
         <a href="#projeler" class="btn">Projeleri Keşfet</a>
     </div>
+
 </section>
 
 <section id="projeler" class="premium-projects-section">
@@ -151,4 +159,43 @@ try {
                 <p>Telefon<br>+90 212 555 12 34</p>
             </div>
             <div class="info-item">
-                <p>E-posta<br>info@emirm
+                <p>E-posta<br>info@emirmimarlik.com</p>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <h4>Menü</h4>
+            <ul>
+                <li><a href="#projeler">Projelerimiz</a></li>
+                <li><a href="#hakkimda">Hakkımızda</a></li>
+                <li><a href="iletisim.php">İletişim</a></li> 
+            </ul>
+        </div>
+        
+    </div>
+</footer>
+
+<script>
+    setInterval(function() {
+        const slides = document.querySelectorAll('.slide');
+        if(slides.length === 0) return; // Slayt yoksa hata verme
+        
+        let activeIndex = 0;
+        
+        // Hangi resmin ekranda olduğunu bul
+        slides.forEach((slide, index) => {
+            if(slide.classList.contains('active')) {
+                activeIndex = index;
+                slide.classList.remove('active'); // Ekranda olanı gizle
+            }
+        });
+
+        // Bir sonraki resme geç, eğer son resimdeyse başa dön
+        let nextIndex = (activeIndex + 1) % slides.length;
+        slides[nextIndex].classList.add('active'); // Yeni resmi göster
+        
+    }, 1500); // 3000 milisaniye = Tam 3 saniye
+</script>
+
+</body>
+</html>
